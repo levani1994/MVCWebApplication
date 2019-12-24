@@ -9,10 +9,15 @@ namespace MVCWebApplication.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        public ActionResult Index()
+        public ViewResult Index()
         {
             int hour = DateTime.Now.Hour;
             ViewBag.date = hour < 12 ? "eeee" : "bbcbv";
+            return View();
+        }
+
+        public ViewResult RspvForm()
+        {
             return View();
         }
     }
