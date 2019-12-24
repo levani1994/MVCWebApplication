@@ -12,7 +12,24 @@
     <title>RspvForm</title>
 </head>
 <body>
-    <div> 
+    <div>
+        @using (Html.BeginForm())
+        {
+            <p>Name: @Html.TextBoxFor(x => x.Name) </p>
+            <p>Email: @Html.TextBoxFor(x => x.Email) </p>
+            <p>Phone: @Html.TextBoxFor(x => x.Phone) </p>
+            <p>
+                will you attend?
+                @Html.DropDownListFor(x => x.WillAtend, new[]
+           {
+               new SelectListItem() {Text ="yes, i'll be there",
+                        Value = bool.TrueString},
+               new SelectListItem() {Text = "no, i cannot come",
+                        Value = bool.FalseString}
+           }, "choose an option")
+            </p>
+            <input type="submit"  name="submit rspv" value="" />
+        }
     </div>
 </body>
 </html>
